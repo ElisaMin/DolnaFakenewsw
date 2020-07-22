@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="js/jquery.slim.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<script src="js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.min.js"></script>
+		<script src="./js/MyElms.js"></script>
+		<title>首页</title>
+		<style type="text/css">
+			
+			a.nav-item.nav-link {
+			    width: 5rem;
+			}
+		</style>
+		<style type="text/css">
+			/*title*/
+			.my-title{
+				display: flex;
+				align-items: flex-end!important;
+				background: brown;
+				padding: 1rem;
+				height: 10rem;
+				width: 95%;
+				margin: 1rem auto;
+				
+			}.my-title-title{
+				background-color:  #B1DFBB;
+			}.my-title.v{
+				width: 100%;
+				height: 94%;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="container mt-4">
+			<nav class="navbar  navbar-expand-sm navbar-light bg-white mt-1">
+				<div class="navbar-brand">
+					<span><h3>CHINA !!</h3></span>
+				</div>
+				
+				<button class="navbar-toggler " type="button" data-toggle="collapse">
+				    <span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<div class="container-fluid">
+					
+				</div>
+				<div class="collapse navbar-collapse">
+					<div class="navbar-nav">
+						<a href="#" class="nav-item nav-link active">头部</a>
+						<a href="#" class="nav-item nav-link">多事</a>
+						<a href="#" class="nav-item nav-link">事我</a>
+						<a href="#" class="nav-item nav-link">其他</a>
+					</div>
+				</div>
+				
+			</nav>
+		</div>
+		
+		<main id="main">
+			<div class="container bg-danger">
+				<div class="row">
+					<div class="col-8">
+						
+						<div class="my-title">
+							<div class="my-title-title">
+								<span> itsa title u know</span>
+							</div>
+						</div>
+						
+						<div class="my-title">
+							
+						</div>
+						<div class="my-title">
+							
+						</div>
+					</div>
+					<div class="col-4">
+						
+						<div class="my-title v">
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</main>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:"#main",
+				data:{
+				},
+				components:{
+					"block":{
+						props:["color"],
+						template:"<div style=' \"backgroud:\"+ color +\";height:5rem;\" '></div>"
+					}
+				}
+			})
+		</
