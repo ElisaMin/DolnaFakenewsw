@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="js/jquery.slim.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<script src="js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.min.js"></script>
+		<script src="./js/MyElms.js"></script>
+		<script src="./js/json.js" type="text/javascript" charset="utf-8"></script>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+			<div class="row">
+				<div class="col-2"></div>
+				<div class="col-8" id="main">
+					<div class="title">
+						<h2>{{title}}</h2>
+					</div>
+					<div class="info">
+						<ul>
+							<li>{{time}}</li>
+							<li>{{author}}</li>
+						</ul>
+					</div>
+					<div class="subject" v-html="media_fmt">
+					</div>
+					
+				</div>
+			</div>
+			
+		<script type="text/javascript">
+			var thisNews = dataFrom.news[0]
+			new Vue({
+				el:"#main",
+				data:thisNews
+			})
+		</script>
+	</body>
+</html>
