@@ -7,7 +7,10 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<script src="js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/vue.min.js"></script>
-		<script src="./js/MyElms.js"></script>
+		<!-- my shit-->
+		<script src="js/json.js"></script>
+		<script src="js/getLang.js"></script>
+		
 		<title>首页</title>
 		<style type="text/css">
 			
@@ -35,8 +38,7 @@
 		</style>
 	</head>
 	<body>
-		
-		<div class="container mt-4">
+		<div class="container mt-4" id="nav">
 			<nav class="navbar  navbar-expand-sm navbar-light bg-white mt-1">
 				<div class="navbar-brand">
 					<span><h3>CHINA !!</h3></span>
@@ -51,10 +53,10 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<div class="navbar-nav">
-						<a href="#" class="nav-item nav-link active">头部</a>
-						<a href="#" class="nav-item nav-link">多事</a>
-						<a href="#" class="nav-item nav-link">事我</a>
-						<a href="#" class="nav-item nav-link">其他</a>
+						<a href="#" class="nav-item nav-link active">{{head}}</a>
+						<a href="#" class="nav-item nav-link">{{more}}</a>
+						<a href="#" class="nav-item nav-link">{{sett}}</a>
+						<a href="#" class="nav-item nav-link">{{abme}}</a>
 					</div>
 				</div>
 				
@@ -66,17 +68,10 @@
 				<div class="row">
 					<div class="col-8">
 						
-						<div class="my-title">
+						<div class="my-title" v-for="item in array">
 							<div class="my-title-title">
-								<span> itsa title u know</span>
+								<span>{{item.title}}</span>
 							</div>
-						</div>
-						
-						<div class="my-title">
-							
-						</div>
-						<div class="my-title">
-							
 						</div>
 					</div>
 					<div class="col-4">
@@ -94,15 +89,13 @@
 			new Vue({
 				el:"#main",
 				data:{
-				},
-				components:{
-					"block":{
-						props:["color"],
-						template:"<div style=' \"backgroud:\"+ color +\";height:5rem;\" '></div>"
-					}
+					array:dataFrom.news
 				}
 			})
-			
+			new Vue({
+				el:"#nav",
+				data:currentLang.tag
+			})
 		</script>
 	</body>
 </html>

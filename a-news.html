@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--jq btstrp vue-->
 		<script src="js/jquery.slim.min.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<script src="js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/vue.min.js"></script>
+		<!--my cst js-->
 		<script src="./js/MyElms.js"></script>
 		<script src="./js/json.js" type="text/javascript" charset="utf-8"></script>
-		<meta charset="utf-8">
-		<title></title>
+		<script src="js/gets.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/getLang.js"></script>
+		<!--spsual needing-->
+		<style type="text/css">.news-header{width: 100%;background-size: cover; background-position: center;}</style>
 	</head>
 	<body>
+		<div class="container-fluid"  id="main" >
+			
 			<div class="row">
-				<div class="col-2"></div>
-				<div class="col-8" id="main">
-					<div class="title">
+				<div class=" news-header pl-5 pb-1 pt-5 text-white" :style="'background-image: url(img/'+headerImage+');'">
+					<div class="title" >
 						<h2>{{title}}</h2>
 					</div>
 					<div class="info">
@@ -24,18 +30,53 @@
 							<li>{{author}}</li>
 						</ul>
 					</div>
+				</div>
+			</div>
+			
+			<div class="row mt-2">
+				<div class="col-2"></div>
+				<div class="col-8">
 					<div class="subject" v-html="media_fmt">
 					</div>
 					
 				</div>
 			</div>
-			
+		</div>
+		
 		<script type="text/javascript">
-			var thisNews = dataFrom.news[0]
-			new Vue({
-				el:"#main",
-				data:thisNews
-			})
+			//获取quary
+			var quary = new Map();
+				 let paramStr = window.location.search ? window.location.search.substr(1) : '';
+				 if (paramStr){
+					paramStr.split("&").forEach(function(it){
+						let key = it.split("=")[0];
+						let val = it.split("=")[1];
+						quary.set(key,val);
+					})
+				}
+		</script>
+		
+		<script type="text/javascript">
+			var thisNews = dataFrom.news[quary.get("id")];
+			//dom
+			if (thisNews){
+				new Vue({
+					el:"#main",
+					data:thisNews
+				})
+				document.title = thisNews.title
+			}else{
+				new Vue({
+					el:"#main",
+					data:{
+						title:"404",
+						time:"",
+						author:"",
+						media_fmt:currentLang.fmt_404
+					}
+				});
+			}
+			//title setting
 		</script>
 	</body>
 </html>
