@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>设置</title>
 		<!--css-->
 		<link rel="stylesheet" type="text/css" href="css/navx.css"/>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -16,7 +16,7 @@
 		
 	</head>
 	<body>
-		<div id="nav" class="container mt-4" ><my-nav v-bind="currentLang.tag"></my-nav></div>
+		<div id="nav" class="container mt-4"><my-nav v-bind="currentLang.tag"></my-nav></div>
 		<script src="js/elms.js"></script>
 		
 		<script type="text/javascript">
@@ -26,14 +26,13 @@
 			<ul class="select-list">
 				
 				<li class="select-item" id="lang-setting">
-					<h1 class="select-item-title">Language/语言</h1>
+					<h1 class="select-item-title" @click="console.log('oncliking')">Language/语言</h1>
 					<ul class="select-option-list">
-						<li class="option" v-for="i in langs">
-							<h3 
-							:id="'lang-'+i.s" 
-							@click="setLang(i.s);" 
-							class="option-lang" 
-							>{{i.l}}</h3>
+						<li class="option" v-for="i in langs" >
+							<a @click="console.log('oncliking');setLang(i.s);" ><h3 
+								:id="'lang-'+i.s" 
+								class="option-lang" 
+							>{{i.l}}</h3></a>
 						</li>
 					</ul>
 				</li>
