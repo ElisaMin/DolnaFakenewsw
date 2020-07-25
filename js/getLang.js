@@ -1,1 +1,0 @@
-var currentLang=lang.zh

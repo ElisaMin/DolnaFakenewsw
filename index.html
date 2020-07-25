@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>首页</title>
+		
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="js/jquery.slim.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--css-->
+		<link rel="stylesheet" type="text/css" href="css/navx.css"/>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-		<script src="js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--jq,bs,vue-->
+		<script src="js/jquery.slim.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/vue.min.js"></script>
-		<!-- my shit-->
+		<!--my-jses-->
 		<script src="js/json.js"></script>
-		<script src="js/getLang.js"></script>
+		<script src="js/gets.js"></script>
 		
-		<title>首页</title>
-		<style type="text/css">
-			
-			a.nav-item.nav-link {
-			    width: 5rem;
-			}
-		</style>
+		
 		<style type="text/css">
 			/*title*/
 			.my-title{
@@ -38,37 +37,17 @@
 		</style>
 	</head>
 	<body>
-		<div class="container mt-4" id="nav">
-			<nav class="navbar  navbar-expand-sm navbar-light bg-white mt-1">
-				<div class="navbar-brand">
-					<span><h3>CHINA !!</h3></span>
-				</div>
-				
-				<button class="navbar-toggler " type="button" data-toggle="collapse">
-				    <span class="navbar-toggler-icon"></span>
-				</button>
-				
-				<div class="container-fluid">
-					
-				</div>
-				<div class="collapse navbar-collapse">
-					<div class="navbar-nav">
-						<a href="#" class="nav-item nav-link active">{{head}}</a>
-						<a href="#" class="nav-item nav-link">{{more}}</a>
-						<a href="#" class="nav-item nav-link">{{sett}}</a>
-						<a href="#" class="nav-item nav-link">{{abme}}</a>
-					</div>
-				</div>
-				
-			</nav>
-		</div>
+		<div id="nav" class="container mt-4" ><my-nav v-bind="currentLang.tag"></my-nav></div>
+		
+		
+		
 		
 		<main id="main">
 			<div class="container bg-danger">
 				<div class="row">
 					<div class="col-8">
 						
-						<div class="my-title" v-for="item in array">
+						<div class="my-title" v-for="item in array" :style="'background-image: url(img/'+item.headerImage+');'">
 							<div class="my-title-title">
 								<span>{{item.title}}</span>
 							</div>
@@ -92,10 +71,7 @@
 					array:dataFrom.news
 				}
 			})
-			new Vue({
-				el:"#nav",
-				data:currentLang.tag
-			})
 		</script>
+		<script src="js/elms.js"></script>
 	</body>
 </html>

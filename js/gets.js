@@ -1,37 +1,5 @@
-/*
-cookie = new Map();
-function getCookie(){
-	let tmp = document.cookie;
-	tmp.split(";").forEach(function (it){
-		let a = it.split("=");
-		cookie.set(a[0],a[1]);
-		console.log(it)
-	})
-	return cookie
-}
-function getCookie(name){
-	if (cookie){
-		cookie.get(name)
-	}
-	return null;
-}
-getCookie();
+// Cookies
+cookie = new Map();function updateCookie(){let tmp = document.cookie;tmp.split("; ").forEach( it => {let a = it.split("=");cookie.set(a[0],a[1]);})}function getCookie(name){if (!cookie) updateCookie();return cookie.get(name);}updateCookie();function setCookie(cookieName,value){cookie.set(cookieName,value);document.cookie = cookieName+"="+value+";";}
 
-function setCookie(cookieName,valueName){
-	
-	if (!getCookie(cookieName)) {
-		document.cookie += (cookieName+"="+valueName+";");
-		cookie.set(cookieName,valueName);
-	}else{
-		let s = ""; 
-		getCookie();
-		cookie.set(cookieName,valueName); 
-		cookie.forEach(function(v,k){ 
-			s+=(k+"="+v+";")
-		})
-		document.cookie = s
-	}
-}
-*/
-
-var l = "zh";
+//getLang
+var currentLang = lang.zh;
