@@ -20,16 +20,37 @@
 		<script src="js/elms.js"></script>
 		
 		<script type="text/javascript">
+			function showResult(label){
+				let string = "";
+				switch(label){
+					case "lang":
+						string = currentLang.result.lang;
+						break;
+					default :
+						console.log("--errow from showResult :" + label);
+						string = currentLang.result.unknowerr;
+					break;
+				}
+				$("#closeDialog").text(currentLang.def.close);
+				$("#dialogText").text(string);
+				 document.querySelector("#dialogOfResult").open = true;
+				$('#closeDialog').click(function(){document.querySelector("#dialogOfResult").open = false})
+				
+			}
 		</script>
+		<dialog close id="dialogOfResult">
+			<p id="dialogText"></p>
+			<button type="button" id="closeDialog">close</button>
+		</dialog>
 		<div class="container">
 			
 			<ul class="select-list">
 				
 				<li class="select-item" id="lang-setting">
-					<h1 class="select-item-title" @click="console.log('oncliking')">Language/语言</h1>
+					<h1 class="select-item-title" >Language/语言</h1>
 					<ul class="select-option-list">
 						<li class="option" v-for="i in langs" >
-							<a @click="console.log('oncliking');setLang(i.s);" ><h3 
+							<a @click="console.log('oncliking');setLang(i.s);showResult('lang');" ><h3 
 								:id="'lang-'+i.s" 
 								class="option-lang" 
 							>{{i.l}}</h3></a>
