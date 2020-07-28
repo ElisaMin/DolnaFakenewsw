@@ -14,12 +14,20 @@
 		<!--my-jses-->
 		<script src="js/lang.js"></script>
 		<script src="js/gets.js"></script>
+		<!--spesual css-->
+		<style type="text/css">
+			.option.active{
+				background-color: lightsteelblue;
+			}
+			
+		</style>
 		
 	</head>
 	<body>
-		<div id="nav" class="container mt-4"><my-nav v-bind="currentLang.tag"></my-nav></div>
+		<div id="nav" class="container-fluid pt-3 pb-4 bg-header"><div class="container bg-white"><my-nav v-bind="currentLang.tag"></my-nav></div></div>
 		<script src="js/elms.js"></script>
 		
+		<!--html弹窗的配套JS-->
 		<script type="text/javascript">
 			function showResult(label){
 				let string = "";
@@ -36,13 +44,18 @@
 				$("#dialogText").text(string);
 				 document.querySelector("#dialogOfResult").open = true;
 				$('#closeDialog').click(function(){document.querySelector("#dialogOfResult").open = false})
+				$(".option").removeClass('active')
+				$("#lang-"+currentLang.id).addClass('active')
 				
 			}
 		</script>
-		<dialog close id="dialogOfResult">
+		
+		<!--html弹窗试用-->
+		<dialog close id="dialogOfResult" class="mt-3">
 			<p id="dialogText"></p>
 			<button type="button" id="closeDialog">close</button>
 		</dialog>
+		
 		<div class="container">
 			
 			<ul class="select-list">
@@ -50,28 +63,26 @@
 				<li class="select-item" id="lang-setting">
 					<h1 class="select-item-title" >Language/语言</h1>
 					<ul class="select-option-list">
-						<li class="option" v-for="i in langs" >
-							<a @click="console.log('oncliking');setLang(i.s);showResult('lang');" ><h3 
-								:id="'lang-'+i.s" 
-								class="option-lang" 
-							>{{i.l}}</h3></a>
+						<!--for 开始-->
+						<li 
+							class="option" 
+							v-for="(l,i) in langs"
+							:class="{active:(l.id==currentLang.id)}"
+							:id="'lang-'+l.id">
+							
+							<a @click="/*console.log('oncliking',i,l);*/setLang(i);showResult('lang');" >
+								<h3 >{{l.langName}}</h3>
+							</a>
+						
 						</li>
+						
 					</ul>
 				</li>
 				<script type="text/javascript">
 					new Vue({
 						el:"#lang-setting",
 						data:{
-							langs:[{
-								s:"zh",
-								l:"中文"
-							},{
-								s:"en",
-								l:"English"
-							},{
-								s:"hz",
-								l:"黑字"
-							}]
+							langs:lang
 						}
 					})
 				</script>

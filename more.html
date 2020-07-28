@@ -12,17 +12,18 @@
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/vue.min.js"></script>
 		<!--my-jses-->
+		<script src="js/href.js"></script>
 		<script src="js/lang.js"></script>
 		<script src="js/gets.js"></script>
 		<script src="js/news.js"></script>
 		
 	</head>
 	<body>
-		<div id="nav" class="container mt-4" ><my-nav v-bind="currentLang.tag"></my-nav></div>
+		<div id="nav" class="container-fluid pt-3 pb-4 bg-header"><div class="container bg-white"><my-nav v-bind="currentLang.tag"></my-nav></div></div>
 		<script src="js/elms.js"></script>
 		<!---->
 		<div class="container">
-			<ul> <!--news list contain-->
+			<ul id="moreNewsList"> <!--news list contain-->
 				<li class="mb-2"><!--news contain-->
 					<h3>title</h3>
 					<p>the text inside ,is long long long and longger text so i write this for no reson and make then click .</p>
@@ -33,8 +34,22 @@
 					<p>if u click me then the browser will open a new page for this news</p>
 					<small class="pl-2 pr-2 pt-1 pb-1 pt-1 ml-2 bg-light">but u cant , havent done yet .</small>
 				</li>
+				<!--vue Time-->
+				<li class="mt-2" v-for="i in news" :id="'page'+i.id" :href="'page.html?id='+i.id">
+					<h3>{{i.title}}</h3>
+					<p>{{i.desription}}</p>
+				</li>
 			</ul>
 		</div>
 		
+		<script type="text/javascript">
+			new Vue({
+				el:"#moreNewsList",
+				data:dataFrom
+			})
+		</script>
+		<script type="text/javascript">
+			setHref("li");
+		</script>
 	</body>
 </html>

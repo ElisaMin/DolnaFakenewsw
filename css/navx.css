@@ -1,2 +1,4 @@
 a.nav-item.nav-link {width: 5rem;}
 ul,li{list-style-type: none;}
+.href-none-type,.href-none-type:hover{color: black;text-decoration: none;}
+.bg-header{background-color: #002752;}

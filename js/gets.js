@@ -3,18 +3,26 @@ cookie = new Map();function updateCookie(){let tmp = document.cookie;tmp.split("
 
 //getLang
 
-var currentLang = lang.zh;
+var currentLang = lang[0];//初始值
 function setLang(l){
-	switch (l) {
+	
+	currentLang=lang[l] //传入INDEX
+	setCookie("lang",l);//保存到COOKIE
+	
+	/*switch (l) { 遗留代码
 		case "zh":currentLang = lang.zh;break;
 		case "en":currentLang = lang.en;break;
 		case "hz":currentLang = lang.hz;break;
-	}
-	setCookie("lang",l);
+	}*/
 }
-let l = getCookie("lang");
-if (!l) {
-	setLang("zh");
+let l = getCookie("lang"); //从cookie中拿出lang的set
+if (l == void 0) { //判空
+	setLang(0); //空则默认
 }else{
-	setLang(getCookie("lang"))
+	setLang(getCookie("lang")) //非空设置
 }
+
+function getURLFilename(){
+	let path =  window.location.pathname.split('/');
+	return path[path.length-1].split(".")[0];
+};
