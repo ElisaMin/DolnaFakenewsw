@@ -29,17 +29,38 @@
 				height: 10rem;
 				width: 100%;
 				margin: 1rem auto;
-				background-size: cover;
+				background-size: contain;
 			}.my-title-title{
 				background-color:  white;
 				padding: 0.5rem;
 			}.my-title.v{
 				height: 32rem;
+			}.my-title>.my-title-title >p,.my-title:hover>.my-title-title >span {
+				display: none;
+			}.my-title:hover>.my-title-title >p {
+				display: block;
+			}
+			@-webkit-keyframes rep{
+				0%{display: none;}
+				50%{display: block;}
+				100%{display: none;}
+			}
+			@-webkit-keyframes repr{
+				0%{display: block;}
+				50%{display: none;}
+				100%{display: block;}
+			}
+			@media (max-width:768px){
+				.my-title-title >span {
+					animation: rep 5s;
+				}.my-title-title >p {
+					animation: repr 5s;
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<div id="nav" class="container-fluid pt-3 pb-4 bg-header"><div class="container bg-white"><my-nav v-bind="currentLang.tag"></my-nav></div></div>
+		<header id="nav" class="container-fluid pt-3 pb-4 bg-header"><div class="container bg-white"><my-nav v-bind="currentLang.tag"></my-nav></div></header>
 		
 		
 		
@@ -56,6 +77,7 @@
 						 :href="'page.html?id='+item.id">
 							<div class="my-title-title">
 								<span>{{item.title}}</span>
+								<p class="m-0">{{item.desription}}</p>
 							</div>
 						</div>
 						
@@ -66,6 +88,7 @@
 						<div class="my-title v" :style="'background-image: url(img/'+another.headerImage+');'" :href="'page.html?id='+another.id">
 							<div class="my-title-title">
 								<span>{{another.title}}</span>
+								<p class="m-0">{{another.desription}}</p>
 							</div>
 						</div>
 						
@@ -77,29 +100,32 @@
 				
 			</div>
 		</main>
-		<script type="text/javascript">
-			//div bind href
-
-			/* 失败
-			$("div[href]").click(() => {
-				console.log("clicked")
-				console.log($(this).attr("href"))
-			})*/
+		<footer>
+			<script type="text/javascript">
+				//div bind href
 			
-		</script>
-		<script type="text/javascript">
-			new Vue({
-				el:"#main",
-				data:{
-					array:[dataFrom.news[0],dataFrom.news[1],dataFrom.news[2]],
-					another:dataFrom.news[3],
-					
-				}
-			})
-		</script>
-		<script src="js/elms.js"></script>
-		<script type="text/javascript">
-			setHref("div");
-		</script>
+				/* 失败
+				$("div[href]").click(() => {
+					console.log("clicked")
+					console.log($(this).attr("href"))
+				})*/
+				
+			</script>
+			<script type="text/javascript">
+				new Vue({
+					el:"#main",
+					data:{
+						array:[dataFrom.news[0],dataFrom.news[1],dataFrom.news[2]],
+						another:dataFrom.news[3],
+						
+					}
+				})
+			</script>
+			<script src="js/elms.js"></script>
+			<script type="text/javascript">
+				setHref("div");
+			</script>
+		</footer>
+		
 	</body>
 </html>

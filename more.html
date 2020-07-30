@@ -23,8 +23,8 @@
 		<script src="js/elms.js"></script>
 		<!---->
 		<div class="container">
-			<ul id="moreNewsList"> <!--news list contain-->
-				<li class="mb-2"><!--news contain-->
+			<ul id="moreNewsList"> <!--news list contain>
+				<!--li class="mb-2"><!--news contain>
 					<h3>title</h3>
 					<p>the text inside ,is long long long and longger text so i write this for no reson and make then click .</p>
 					<small class="px-2 py-1 ml-2 bg-light ">its the comment</small>
@@ -35,7 +35,13 @@
 					<small class="pl-2 pr-2 pt-1 pb-1 pt-1 ml-2 bg-light">but u cant , havent done yet .</small>
 				</li>
 				<!--vue Time-->
-				<li class="mt-2" v-for="i in news" :id="'page'+i.id" :href="'page.html?id='+i.id">
+				<li 
+					class="mt-2" 
+					v-for="(i,index) in news" 
+					:id="'page'+i.id" 
+					:href="'page.html?id='+i.id"
+					v-if="index>=4">
+	
 					<h3>{{i.title}}</h3>
 					<p>{{i.desription}}</p>
 				</li>

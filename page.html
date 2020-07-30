@@ -18,16 +18,16 @@
 		<style type="text/css">.news-header{width: 100%;background-size: cover; background-position: center;}</style>
 	</head>
 	<body>
-		<div class="container-fluid"  id="main" >
+		<main class="container-fluid"  id="main" >
 			<div class="row">
 				<div class=" news-header text-white" :style="'background-image: url(img/'+headerImage+');'">
 					<div id="nav" class="container mt-4"><my-nav v-bind="currentLang.tag"></my-nav></div>
 					<script src="js/elms.js"></script>
 					<div class="container pb-1 pt-5">
 						
-						<div class="title" >
+						<header class="title" >
 							<h2>{{title}}</h2>
-						</div>
+						</header>
 						<div class="info">
 							<ul>
 								<li>{{time}}</li>
@@ -40,8 +40,7 @@
 			
 			<div class="row mt-2">
 				<div class="container">
-					<div class="subject" v-html="media_fmt">
-					</div>
+					<article class="subject" v-html="media_fmt"></article>
 				</div>
 			</div>
 			<div class="">
@@ -50,7 +49,7 @@
 			<div class="row mt-2">
 				
 			</div>
-		</div>
+		</main>
 		
 		
 		<script type="text/javascript">
