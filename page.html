@@ -13,6 +13,7 @@
 		<script src="js/lang.js"></script>
 		<script src="js/gets.js"></script>
 		<script src="js/news.js"></script>
+		<script src="js/cmmt.js"></script>
 		
 		<!--spsual needing-->
 		<style type="text/css">.news-header{width: 100%;background-size: cover; background-position: center;}</style>
@@ -43,12 +44,15 @@
 					<article class="subject" v-html="media_fmt"></article>
 				</div>
 			</div>
-			<div class="">
-				
+			<div class="container" id="comment">
+				<ul class="row mt-2 pl-0">
+					<li v-for="(i,index) in c">
+						<h4>###</h4>
+						<p>Comment</p>
+					</li>
+				</ul>
 			</div>
-			<div class="row mt-2">
-				
-			</div>
+			
 		</main>
 		
 		
@@ -66,7 +70,7 @@
 		</script>
 		
 		<script type="text/javascript">
-			let quaryID = quary.get("id");
+			var quaryID = quary.get("id");
 			let thisNews = null
 			if (quaryID) {
 				dataFrom.news.forEach(it => {
@@ -95,6 +99,14 @@
 				});
 			}
 			//title setting
+		</script>
+		<script type="text/javascript">
+			let thisComment = comments[quaryID];
+			console.log(thisComment)
+			new Vue({
+				el:"#comment",
+				data:{c:thisComment}
+			})
 		</script>
 	</body>
 </html>

@@ -20,15 +20,10 @@
 		
 		
 		<style type="text/css">
-			/*title*/
-			.my-title{
-				display: flex;
-				align-items: flex-end!important;
-				background: brown;
-				padding: 1rem;
-				height: 10rem;
-				width: 100%;
-				margin: 1rem auto;
+			.my-title{box-shadow: 0 0 3px -1px darkgrey;
+				display: flex;align-items: flex-end!important;
+				background: brown;padding: 1rem;
+				height: 10rem;width: 100%;margin: 1rem auto;
 				background-size: contain;
 			}.my-title-title{
 				background-color:  white;
@@ -38,8 +33,7 @@
 			}.my-title>.my-title-title >p,.my-title:hover>.my-title-title >span {
 				display: none;
 			}.my-title:hover>.my-title-title >p {
-				display: block;
-			}
+				display: block;}
 			@-webkit-keyframes rep{
 				0%{display: none;}
 				50%{display: block;}
@@ -62,9 +56,6 @@
 	<body>
 		<header id="nav" class="container-fluid pt-3 pb-4 bg-header"><div class="container bg-white"><my-nav v-bind="currentLang.tag"></my-nav></div></header>
 		
-		
-		
-		
 		<main id="main" class="container-fluid mt-3">
 			<div class="container" style="background: brown;">
 				<div class="row">
@@ -82,7 +73,6 @@
 						</div>
 						
 					</div>
-					
 					<div class="col-lg-4">
 						
 						<div class="my-title v" :style="'background-image: url(img/'+another.headerImage+');'" :href="'page.html?id='+another.id">
@@ -100,17 +90,8 @@
 				
 			</div>
 		</main>
+		
 		<footer>
-			<script type="text/javascript">
-				//div bind href
-			
-				/* 失败
-				$("div[href]").click(() => {
-					console.log("clicked")
-					console.log($(this).attr("href"))
-				})*/
-				
-			</script>
 			<script type="text/javascript">
 				new Vue({
 					el:"#main",

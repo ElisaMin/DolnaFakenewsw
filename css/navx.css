@@ -1,4 +1,7 @@
 a.nav-item.nav-link {width: 5rem;}
 ul,li{list-style-type: none;}
 .href-none-type,.href-none-type:hover{color: black;text-decoration: none;}
-.bg-header{background-color: #002752;}
+.bg-header{background-color:darkred;}
+.nav-item.nav-link.active{font-weight: 900;font-size: 1.25em;}
+.navbar-nav{align-items: flex-end;}
+@media(max-width:575px) {.navbar-nav{align-items: unset;}}

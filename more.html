@@ -16,13 +16,17 @@
 		<script src="js/lang.js"></script>
 		<script src="js/gets.js"></script>
 		<script src="js/news.js"></script>
-		
+		<style type="text/css">
+			#moreNewsList > li :hover{
+				font-size: 1.5em;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="nav" class="container-fluid pt-3 pb-4 bg-header"><div class="container bg-white"><my-nav v-bind="currentLang.tag"></my-nav></div></div>
 		<script src="js/elms.js"></script>
 		<!---->
-		<div class="container">
+		<div class="container mt-2">
 			<ul id="moreNewsList"> <!--news list contain>
 				<!--li class="mb-2"><!--news contain>
 					<h3>title</h3>
