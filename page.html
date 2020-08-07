@@ -19,38 +19,54 @@
 		<style type="text/css">.news-header{width: 100%;background-size: cover; background-position: center;}</style>
 	</head>
 	<body>
-		<main class="container-fluid"  id="main" >
-			<div class="row">
-				<div class=" news-header text-white" :style="'background-image: url(img/'+headerImage+');'">
-					<div id="nav" class="container mt-4"><my-nav v-bind="currentLang.tag"></my-nav></div>
-					<script src="js/elms.js"></script>
-					<div class="container pb-1 pt-5">
-						
-						<header class="title" >
-							<h2>{{title}}</h2>
-						</header>
-						<div class="info">
-							<ul>
-								<li>{{time}}</li>
-								<li>{{author}}</li>
-							</ul>
+		<main class="container-fluid"  >
+			<div id="main" >
+				<div class="row" >
+					<div class=" news-header text-white" :style="'background-image: url(img/'+headerImage+');'" :class="{'bg-dark':(quaryID == void 0)}">
+						<div id="nav" class="container mt-4"><my-nav v-bind="currentLang.tag"></my-nav></div>
+						<script src="js/elms.js"></script>
+						<div class="container pb-1 pt-5">
+							
+							<header class="title"  >
+								<h2>{{title}}</h2>
+							</header>
+							<div class="info">
+								<ul>
+									<li>{{time}}</li>
+									<li>{{author}}</li>
+								</ul>
+							</div>
 						</div>
+					</div>
+					
+				</div>
+				
+				<div class="row mt-2">
+					<div class="container">
+						<article class="subject" v-html="media_fmt"></article>
 					</div>
 				</div>
 			</div>
-			
-			<div class="row mt-2">
-				<div class="container">
-					<article class="subject" v-html="media_fmt"></article>
+
+			<div id="comment" >
+				<div class="container my-5 " v-if="thisComment !== void 0">
+					<div class="h1">评论：</div>
+					<ul class="  mt-3 pl-2">
+						<li v-for="(i,j) in c" class="d-flex mt-2" style="align-items: flex-end" >
+							<div class="d-flex mr-3" style="align-items: flex-end" >
+								<h4>#</h4>
+								<h6>{{j}}</h6>
+							</div>
+							<p class="mb-0">{{i}}</p>
+						</li>
+					</ul>
+					<div class="ml-5">
+						<form>
+							<input type="text" value="！本新闻已经禁止评论" id="commentForm" style="width: 95%;" >
+							<button disabled="true" class="btn disabled" >发送评论</button>
+						</form>
+					</div>
 				</div>
-			</div>
-			<div class="container" id="comment">
-				<ul class="row mt-2 pl-0">
-					<li v-for="(i,index) in c">
-						<h4>###</h4>
-						<p>Comment</p>
-					</li>
-				</ul>
 			</div>
 			
 		</main>
@@ -82,6 +98,7 @@
 			}
 			//dom
 			if (thisNews){
+				thisNews.darkBg = false
 				new Vue({
 					el:"#main",
 					data:thisNews
@@ -94,7 +111,8 @@
 						title:"404",
 						time:"",
 						author:"",
-						media_fmt:currentLang.fmt_404
+						media_fmt:currentLang.fmt_404,
+						headerImage:"null"
 					}
 				});
 			}
@@ -102,11 +120,13 @@
 		</script>
 		<script type="text/javascript">
 			let thisComment = comments[quaryID];
-			console.log(thisComment)
-			new Vue({
-				el:"#comment",
-				data:{c:thisComment}
-			})
+			if (thisNews){
+				new Vue({
+					el:"#comment",
+					data:{c:thisComment}
+				})
+			}
+			
 		</script>
 	</body>
 </html>

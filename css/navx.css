@@ -4,4 +4,6 @@ ul,li{list-style-type: none;}
 .bg-header{background-color:darkred;}
 .nav-item.nav-link.active{font-weight: 900;font-size: 1.25em;}
 .navbar-nav{align-items: flex-end;}
+p[ti],article>p{text-indent: 2em}
+
 @media(max-width:575px) {.navbar-nav{align-items: unset;}}

@@ -56,8 +56,8 @@
 	<body>
 		<header id="nav" class="container-fluid pt-3 pb-4 bg-header"><div class="container bg-white"><my-nav v-bind="currentLang.tag"></my-nav></div></header>
 		
-		<main id="main" class="container-fluid mt-3">
-			<div class="container" style="background: brown;">
+		<main  class="container-fluid mt-3">
+			<div id="main" class="container" style="background: brown;">
 				<div class="row">
 					
 					<div class="col-lg-8">
@@ -73,9 +73,9 @@
 						</div>
 						
 					</div>
-					<div class="col-lg-4">
+					<div class="col-lg-4 px-lg-auto px-sm-3 ">
 						
-						<div class="my-title v" :style="'background-image: url(img/'+another.headerImage+');'" :href="'page.html?id='+another.id">
+						<div class="my-title v mt-sm-0 mt-lg-3" :style="'background-image: url(img/'+another.headerImage+');'" :href="'page.html?id='+another.id">
 							<div class="my-title-title">
 								<span>{{another.title}}</span>
 								<p class="m-0">{{another.desription}}</p>
@@ -86,8 +86,8 @@
 					
 				</div>
 			</div>
-			<div class="container mt-3"> <!--时间表单-->
-				
+			<div class=" text-center container mt-5">
+				<a href="https://github.com/ElisaMin/DonaldFakeNews"><h1>View source on Github! -> </h1></a>
 			</div>
 		</main>
 		

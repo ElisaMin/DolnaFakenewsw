@@ -17,8 +17,11 @@
 		<script src="js/gets.js"></script>
 		<script src="js/news.js"></script>
 		<style type="text/css">
-			#moreNewsList > li :hover{
-				font-size: 1.5em;
+			#moreNewsList li:hover>h3{
+				font-size: 1rem;
+				color: #005cbf;
+			}#moreNewsList li:hover>p{
+				font-size: 1.5rem !important;
 			}
 		</style>
 	</head>
@@ -40,7 +43,7 @@
 				</li>
 				<!--vue Time-->
 				<li 
-					class="mt-2" 
+					class="m-1"
 					v-for="(i,index) in news" 
 					:id="'page'+i.id" 
 					:href="'page.html?id='+i.id"

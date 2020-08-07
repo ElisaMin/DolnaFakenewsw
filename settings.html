@@ -70,7 +70,7 @@
 							:class="{active:(l.id==currentLang.id)}"
 							:id="'lang-'+l.id">
 							
-							<a @click="/*console.log('oncliking',i,l);*/setLang(i);showResult('lang');" >
+							<a @click="lang.set(i);showResult('lang');" >
 								<h3 >{{l.langName}}</h3>
 							</a>
 						

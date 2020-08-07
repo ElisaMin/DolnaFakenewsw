@@ -17,10 +17,42 @@
 		
 	</head>
 	<body>
+
 		<div id="nav" class="container-fluid pt-3 pb-4 bg-header"><div class="container bg-white"><my-nav v-bind="currentLang.tag"></my-nav></div></div>
 		<script src="js/elms.js"></script>
-		<div class="container text-center">
-			<h2>PowerdBy-<h1>HEIZI</h1></h2>
+		<div class="container  mt-3">
+			<div class="">
+				<h1>Donald框架</h1>
+				<p ti >一款以Bootstrap和Vue驱动的新闻类型网页框架，只需要把JSON轻轻一改就能摇身一变，成为你自己喜欢的样子。</p>
+				<h3>如何使用该框架？（简答）</h3>
+				<p ti>实际上该框架的内容在json内，你只需要用JavaScript连接所在的服务器，让服务器回复相应的JSON即可。</p>
+				<h2>接下来还有什么吗？</h2>
+				<p ti>实际上还有很多东西在接下来会更新的，如：（咕咕咕）</p>
+				<ul id="list-1" >
+					<li v-for="i in a" style="list-style-type: lower-greek;">{{i}}</li>
+				</ul>
+				<script>new Vue({el:"#list-1",data: {a:["用户系统","主页丰富"]}})</script>
+
+			</div>
+
+			<div class=" mt-5 d-flex align-items-center text-center justify-content-center" >
+				<h2>PowerdBy-<h1>HEIZI</h1>.</h2>
+			</div>
+
+			<div class=" align-items-center text-center justify-content-center" >
+				<div class="d-flex align-items-center text-center justify-content-center">
+					<img src="https://cn.vuejs.org/images/logo.png" style="height: 4rem" />
+					 <div class="justify-content-center align-items-center d-flex ml-3"
+						  style="background-color: #6f42c1;height: 3.5rem;width: 3.5rem;font-weight: bold;font-size: 3rem;color: white;border-radius: 0.5rem"
+					 >B</div>
+				</div>
+				<h4>Thank Vue.js and Bootstrap.</h4>
+			</div>
+			<article>
+
+			</article>
+
+
 		</div>
 	</body>
 </html>
